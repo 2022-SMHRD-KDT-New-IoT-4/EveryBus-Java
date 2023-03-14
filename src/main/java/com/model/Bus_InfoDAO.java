@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -15,7 +17,7 @@ public class Bus_InfoDAO {
     }
     
  // 버스 정보 리스트
-    public Bus_InfoDTO connectionDB(Bus_InfoDTO dto) {
+    public Bus_InfoDTO select(Bus_InfoDTO dto) {
     	Bus_InfoDTO result = null;
     	SqlSession sqlSession = sqlSessionFactory.openSession(true);
         try {
@@ -27,5 +29,25 @@ public class Bus_InfoDAO {
         }
         return result;
     }
+    
+    
+    public List<Bus_InfoDTO> search(){
+    	List<Bus_InfoDTO> list = null;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		try {
+			list = sqlSession.selectList("com.model.Bus_InfoDAO.busSearch");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+    	
+    	return list;
+    	
+    }
+    
+    
+    
 }
 	

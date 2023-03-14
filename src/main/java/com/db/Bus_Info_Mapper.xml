@@ -6,7 +6,14 @@
    
     
     <select id="select" resultType="Bus_InfoDTO">
-    	select line_id, line_name, dir_up_name, dir_down_name from bus_info where line_id=1
+    	select line_id, line_name, dir_up_name, dir_down_name, line_kind from bus_info where line_name=#{line_name}
+    </select>
+    
+    <select id="busSearch" resultType="Bus_InfoDTO">
+    	select line_name, line_kind from bus_info 
+    
+    
+    
     </select>
 
     

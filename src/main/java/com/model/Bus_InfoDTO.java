@@ -6,6 +6,8 @@ public class Bus_InfoDTO {
 	private String line_name;
 	private String dir_up_name;
 	private String dir_down_name;
+	private String line_kind;
+	
 	
 	
 	
@@ -13,13 +15,15 @@ public class Bus_InfoDTO {
 		super();
 	}
 	
-	public Bus_InfoDTO(String line_id, String line_name, String dir_up_name, String dir_down_name) {
+	public Bus_InfoDTO(String line_id, String line_name, String dir_up_name, String dir_down_name, String line_kind) {
 		super();
 		this.line_id = line_id;
 		this.line_name = line_name;
 		this.dir_up_name = dir_up_name;
 		this.dir_down_name = dir_down_name;
+		this.line_kind = line_kind;
 	}
+	
 	public String getLine_id() {
 		return line_id;
 	}
@@ -44,6 +48,17 @@ public class Bus_InfoDTO {
 	public void setDir_down_name(String dir_down_name) {
 		this.dir_down_name = dir_down_name;
 	}
+	public String getLine_kind() {
+		return line_kind;
+	}
+	public void setLine_kind(String line_kind) {
+		this.line_kind = line_kind;
+	}
+	
+	
+	
+	
+	
 	
 	
 

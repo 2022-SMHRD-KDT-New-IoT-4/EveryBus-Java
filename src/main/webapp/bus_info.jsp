@@ -10,14 +10,16 @@
 
 	// 한글 인코딩
 	request.setCharacterEncoding("UTF-8");
-	String line_id = request.getParameter("line_id");
-	String line_name = request.getParameter("line_name");
+	String line_id = request.getParameter("LineID");
+	String line_name = request.getParameter("LineName");
 	String dir_up_name = request.getParameter("dir_up_name");
 	String dir_down_name = request.getParameter("dir_down_name");
-	
-	Bus_InfoDTO bus_InfoDTO = new Bus_InfoDTO(line_id,line_name,dir_up_name,dir_down_name);
+	String line_kind = request.getParameter("line_kind");
 
-	Bus_InfoDTO returns = bus_infoDAO.connectionDB(bus_InfoDTO);
+	System.out.println(line_name);
+	
+	Bus_InfoDTO dto = new Bus_InfoDTO(line_id, line_name, dir_up_name, dir_down_name, line_kind);
+	Bus_InfoDTO returns = bus_infoDAO.select(dto);
 
 	System.out.println(returns);
 	String jsonTest = gson.toJson(returns);
