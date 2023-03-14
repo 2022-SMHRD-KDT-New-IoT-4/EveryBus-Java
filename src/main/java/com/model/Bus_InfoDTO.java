@@ -9,8 +9,6 @@ public class Bus_InfoDTO {
 	private String line_kind;
 	
 	
-	
-	
 	public Bus_InfoDTO() {
 		super();
 	}
