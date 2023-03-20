@@ -11,9 +11,10 @@
     
     <select id="busSearch" resultType="Bus_InfoDTO">
     	select line_name, line_kind from bus_info 
+    </select>
     
-    
-    
+    <select id="congestionBusSearch" resultType="Bus_InfoDTO">
+    	select line_name from bus_info 
     </select>
 
     

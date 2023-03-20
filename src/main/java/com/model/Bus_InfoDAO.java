@@ -46,5 +46,21 @@ public class Bus_InfoDAO {
 		return list;
 
 	}
+	
+	public List<Bus_InfoDTO> congestionBusSearch() {
+		List<Bus_InfoDTO> list = null;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		try {
+			list = sqlSession.selectList("com.model.Bus_InfoDAO.congestionBusSearch");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+
+		return list;
+
+	}
 
 }

@@ -14,7 +14,7 @@ import com.model.Bus_InfoDAO;
 import com.model.Bus_InfoDTO;
 
 @WebServlet("/BusSearch")
-public class BusSearch extends HttpServlet {
+public class Bus_Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
