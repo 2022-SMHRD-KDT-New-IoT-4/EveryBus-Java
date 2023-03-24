@@ -1,8 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +11,8 @@ import com.google.gson.Gson;
 import com.model.Bus_InfoDAO;
 import com.model.Bus_InfoDTO;
 
-@WebServlet("/Bus_info")
-public class Bus_info extends HttpServlet {
+@WebServlet("/Bus_Info")
+public class Bus_Info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -32,13 +30,13 @@ public class Bus_info extends HttpServlet {
 		Bus_InfoDTO dto = new Bus_InfoDTO();
 		dto.setLine_name(line_name);
 
-		Bus_InfoDTO result = dao.select(dto);
+		Bus_InfoDTO result = dao.busInfo(dto);
 
 		System.out.println(result);
+		// jsonTest
 		String jsonTest = gson.toJson(result);
 		response.setContentType("application/json;charset=utf-8");
 		response.getWriter().print(jsonTest);
 
 	}
-
 }

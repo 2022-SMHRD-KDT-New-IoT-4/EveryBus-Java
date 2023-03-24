@@ -13,29 +13,33 @@ import com.google.gson.Gson;
 import com.model.Bus_InfoDAO;
 import com.model.Bus_InfoDTO;
 
-@WebServlet("/BusSearch")
-public class BusSearch extends HttpServlet {
+@WebServlet("/Route_Bus_info")
+public class Route_Bus_info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 버스 정보 search
 		// gson 불러주자
 		Gson gson = new Gson();
-		// DAO
-		Bus_InfoDAO dao = new Bus_InfoDAO();
-		// DAO에 넣어주기
-		List<Bus_InfoDTO> list = dao.search();
 
-		// list에 값이 있다면?
-		if (list != null) {
-			// response에 담아주기
-			String result = gson.toJson(list);
-			response.setContentType("application/json;charset=utf-8");
-			response.getWriter().print(result);
+		// 안드로이드에서 입력한 값 받아오기
+		String line_name = request.getParameter("LineName");
+		Bus_InfoDAO dao = Bus_InfoDAO.getInstance();
 
-		}
+		System.out.println(line_name);
+
+		Bus_InfoDTO dto = new Bus_InfoDTO();
+		dto.setLine_name(line_name);
+
+		Bus_InfoDTO result = dao.routeBusInfo(dto);
+
+		System.out.println(result);
+		// jsonTest
+		String jsonTest = gson.toJson(result);
+		response.setContentType("application/json;charset=utf-8");
+		response.getWriter().print(jsonTest);
 
 	}
+
 }

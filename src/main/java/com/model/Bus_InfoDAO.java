@@ -18,11 +18,11 @@ public class Bus_InfoDAO {
 	}
 
 	// 버스 정보 리스트
-	public Bus_InfoDTO select(Bus_InfoDTO dto) {
+	public Bus_InfoDTO routeBusInfo(Bus_InfoDTO dto) {
 		Bus_InfoDTO result = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		try {
-			result = sqlSession.selectOne("com.model.Bus_InfoDAO.select", dto);
+			result = sqlSession.selectOne("com.model.Bus_InfoDAO.routeBusInfo", dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -45,6 +45,19 @@ public class Bus_InfoDAO {
 
 		return list;
 
+	}
+
+	public Bus_InfoDTO busInfo(Bus_InfoDTO dto) {
+		Bus_InfoDTO result = null;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			result = sqlSession.selectOne("com.model.Bus_InfoDAO.busInfo", dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
 	}
 
 }
