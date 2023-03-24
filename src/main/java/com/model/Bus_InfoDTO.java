@@ -1,7 +1,6 @@
 package com.model;
 
 public class Bus_InfoDTO {
-	
 	private String line_id;
 	private String line_name;
 	private String dir_up_name;
